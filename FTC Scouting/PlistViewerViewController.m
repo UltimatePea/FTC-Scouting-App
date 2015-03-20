@@ -22,8 +22,21 @@
     // Do any additional setup after loading the view.
     self.textView.text = @"";
     [self.content enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        self.textView.text = [NSString stringWithFormat:@"%@%@：%@\r\n", self.textView.text, key, obj];
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *dic = obj;
+            [self addStringToTextView:[NSString stringWithFormat:@"%@:\r\n", key]];
+            [dic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                [self addStringToTextView:[NSString stringWithFormat:@"%@:%@\r\n", key, obj]];
+            }];
+        } else {
+            [self addStringToTextView:[NSString stringWithFormat:@"%@:%@\r\n", key, obj]];
+        }
     }];
+}
+
+- (void)addStringToTextView:(NSString *)string
+{
+    self.textView.text = [NSString stringWithFormat:@"%@%@", self.textView.text, string];
 }
 
 - (void)didReceiveMemoryWarning {

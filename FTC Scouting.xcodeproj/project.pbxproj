@@ -19,6 +19,7 @@
 		E736688B1ABB910B0088DAB3 /* FilesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E736688A1ABB910B0088DAB3 /* FilesTableViewController.m */; };
 		E736688E1ABB97DE0088DAB3 /* PlistViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E736688D1ABB97DE0088DAB3 /* PlistViewerViewController.m */; };
 		E73668901ABBA3650088DAB3 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E736688F1ABBA3650088DAB3 /* Image.xcassets */; };
+		E73668941ABC83AD0088DAB3 /* Team Info.csv in Resources */ = {isa = PBXBuildFile; fileRef = E73668931ABC83AD0088DAB3 /* Team Info.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		E736688C1ABB97DE0088DAB3 /* PlistViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistViewerViewController.h; sourceTree = "<group>"; };
 		E736688D1ABB97DE0088DAB3 /* PlistViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistViewerViewController.m; sourceTree = "<group>"; };
 		E736688F1ABBA3650088DAB3 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		E73668931ABC83AD0088DAB3 /* Team Info.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Team Info.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				E73668501ABA2EE00088DAB3 /* ScoutingTableViewController.m */,
 				E73668891ABB910B0088DAB3 /* FilesTableViewController.h */,
 				E736688A1ABB910B0088DAB3 /* FilesTableViewController.m */,
+				E73668931ABC83AD0088DAB3 /* Team Info.csv */,
 				E73668871ABB83950088DAB3 /* Sample.plist */,
 				E73668381ABA21670088DAB3 /* LaunchScreen.xib */,
 				E736682D1ABA21670088DAB3 /* FTC_Scouting.xcdatamodeld */,
@@ -221,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E73668941ABC83AD0088DAB3 /* Team Info.csv in Resources */,
 				E73668881ABB83950088DAB3 /* Sample.plist in Resources */,
 				E73668901ABBA3650088DAB3 /* Image.xcassets in Resources */,
 				E73668351ABA21670088DAB3 /* Main.storyboard in Resources */,

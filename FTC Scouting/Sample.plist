@@ -12,5 +12,11 @@
 	<string></string>
 	<key>Rank</key>
 	<string></string>
+	<key>AutonomousPartNotMoving</key>
+	<string></string>
+	<key>Manual Part Not Moving</key>
+	<string></string>
+	<key>Detailed Scores</key>
+	<string></string>
 </dict>
 </plist>
