@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Team Number</key>
+	<string></string>
+	<key>Team Name</key>
+	<string></string>
+	<key>Comment</key>
+	<string></string>
+	<key>Score</key>
+	<string></string>
+	<key>Rank</key>
+	<string></string>
+</dict>
+</plist>
