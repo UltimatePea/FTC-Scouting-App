@@ -17,6 +17,6 @@
 	<key>Manual Part Not Moving</key>
 	<string></string>
 	<key>Detailed Scores</key>
-	<string></string>
+	<array/>
 </dict>
 </plist>

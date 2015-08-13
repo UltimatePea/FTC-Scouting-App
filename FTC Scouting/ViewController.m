@@ -34,6 +34,7 @@
     }];
     [ac addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [self.teamNumberButton setTitle:[NSString stringWithFormat:@"Team Number: %d", [((UITextField *)([ac.textFields firstObject])).text intValue]] forState:UIControlStateNormal];
+        
     }]];
     [self presentViewController:ac animated:YES completion:nil];
 }

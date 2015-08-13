@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7094B991ABD7EF8007E88D6 /* AnalyzeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7094B981ABD7EF8007E88D6 /* AnalyzeTableViewController.m */; };
+		E70E954B1ABCCA6B00FBA878 /* B matches.csv in Resources */ = {isa = PBXBuildFile; fileRef = E70E954A1ABCCA6B00FBA878 /* B matches.csv */; };
+		E728CAD51ADD3453008CF5FA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E728CAD41ADD3453008CF5FA /* RootViewController.m */; };
+		E728CAD81ADD3EFF008CF5FA /* LandscapePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E728CAD71ADD3EFF008CF5FA /* LandscapePickerController.m */; };
+		E728CADB1ADD4305008CF5FA /* MoreInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E728CADA1ADD4305008CF5FA /* MoreInfoTableViewController.m */; };
 		E73668291ABA21670088DAB3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E73668281ABA21670088DAB3 /* main.m */; };
 		E736682C1ABA21670088DAB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E736682B1ABA21670088DAB3 /* AppDelegate.m */; };
 		E736682F1ABA21670088DAB3 /* FTC_Scouting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E736682D1ABA21670088DAB3 /* FTC_Scouting.xcdatamodeld */; };
 		E73668321ABA21670088DAB3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73668311ABA21670088DAB3 /* ViewController.m */; };
-		E73668351ABA21670088DAB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73668331ABA21670088DAB3 /* Main.storyboard */; };
-		E736683A1ABA21670088DAB3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E73668381ABA21670088DAB3 /* LaunchScreen.xib */; };
 		E73668461ABA21670088DAB3 /* FTC_ScoutingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E73668451ABA21670088DAB3 /* FTC_ScoutingTests.m */; };
 		E73668511ABA2EE00088DAB3 /* ScoutingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73668501ABA2EE00088DAB3 /* ScoutingTableViewController.m */; };
 		E73668881ABB83950088DAB3 /* Sample.plist in Resources */ = {isa = PBXBuildFile; fileRef = E73668871ABB83950088DAB3 /* Sample.plist */; };
@@ -20,6 +23,23 @@
 		E736688E1ABB97DE0088DAB3 /* PlistViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E736688D1ABB97DE0088DAB3 /* PlistViewerViewController.m */; };
 		E73668901ABBA3650088DAB3 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E736688F1ABBA3650088DAB3 /* Image.xcassets */; };
 		E73668941ABC83AD0088DAB3 /* Team Info.csv in Resources */ = {isa = PBXBuildFile; fileRef = E73668931ABC83AD0088DAB3 /* Team Info.csv */; };
+		E73668971ABC9BBF0088DAB3 /* PlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73668961ABC9BBF0088DAB3 /* PlistTableViewController.m */; };
+		E73D13431ADC2DA5000D6104 /* PlistDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = E73D13421ADC2DA5000D6104 /* PlistDownloader.m */; };
+		E772C4101ABD87850093B8DF /* NSURL+Directory.m in Sources */ = {isa = PBXBuildFile; fileRef = E772C40F1ABD87850093B8DF /* NSURL+Directory.m */; };
+		E772C4131ABD9C480093B8DF /* HexagonView.m in Sources */ = {isa = PBXBuildFile; fileRef = E772C4121ABD9C480093B8DF /* HexagonView.m */; };
+		E772C4161ABDA5760093B8DF /* TeamDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E772C4151ABDA5760093B8DF /* TeamDetailViewController.m */; };
+		E772C4181ABDC04C0093B8DF /* Sample_Real.plist in Resources */ = {isa = PBXBuildFile; fileRef = E772C4171ABDC04C0093B8DF /* Sample_Real.plist */; };
+		E772C41B1ABDC7640093B8DF /* NSDictionary+Indexing.m in Sources */ = {isa = PBXBuildFile; fileRef = E772C41A1ABDC7640093B8DF /* NSDictionary+Indexing.m */; };
+		E7C1B04A1ADEBC950088B21C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7C1B0491ADEBC950088B21C /* Main.storyboard */; };
+		E7C1B04C1ADEBC9C0088B21C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7C1B04B1ADEBC9C0088B21C /* LaunchScreen.xib */; };
+		E7C1B04F1ADEBCDF0088B21C /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C1B04E1ADEBCDF0088B21C /* HelpViewController.m */; };
+		E7C1B0521ADEBD9C0088B21C /* HelpContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C1B0511ADEBD9C0088B21C /* HelpContentViewController.m */; };
+		E7DE62721AD9A019009DCA25 /* PlistUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE62711AD9A019009DCA25 /* PlistUploader.m */; };
+		E7DE62751ADA9015009DCA25 /* NewTeamInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE62741ADA9015009DCA25 /* NewTeamInfoTableViewController.m */; };
+		E7DE627B1ADA98E5009DCA25 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DE627A1ADA98E5009DCA25 /* AssetsLibrary.framework */; };
+		E7DE627D1ADA9A8B009DCA25 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DE627C1ADA9A8B009DCA25 /* AVFoundation.framework */; };
+		E7DE62801ADAA9B3009DCA25 /* TeamInfoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE627F1ADAA9B3009DCA25 /* TeamInfoTableViewController.m */; };
+		E7DE62831ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7DE62821ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +53,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E7094B971ABD7EF8007E88D6 /* AnalyzeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalyzeTableViewController.h; sourceTree = "<group>"; };
+		E7094B981ABD7EF8007E88D6 /* AnalyzeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalyzeTableViewController.m; sourceTree = "<group>"; };
+		E70E954A1ABCCA6B00FBA878 /* B matches.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "B matches.csv"; sourceTree = "<group>"; };
+		E728CAD31ADD3453008CF5FA /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E728CAD41ADD3453008CF5FA /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E728CAD61ADD3EFF008CF5FA /* LandscapePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapePickerController.h; sourceTree = "<group>"; };
+		E728CAD71ADD3EFF008CF5FA /* LandscapePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapePickerController.m; sourceTree = "<group>"; };
+		E728CAD91ADD4305008CF5FA /* MoreInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreInfoTableViewController.h; sourceTree = "<group>"; };
+		E728CADA1ADD4305008CF5FA /* MoreInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreInfoTableViewController.m; sourceTree = "<group>"; };
 		E73668231ABA21670088DAB3 /* FTC Scouting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FTC Scouting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73668271ABA21670088DAB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73668281ABA21670088DAB3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +70,6 @@
 		E736682E1ABA21670088DAB3 /* FTC_Scouting.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FTC_Scouting.xcdatamodel; sourceTree = "<group>"; };
 		E73668301ABA21670088DAB3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E73668311ABA21670088DAB3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E73668341ABA21670088DAB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E73668391ABA21670088DAB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E736683F1ABA21670088DAB3 /* FTC ScoutingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FTC ScoutingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E73668441ABA21670088DAB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73668451ABA21670088DAB3 /* FTC_ScoutingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FTC_ScoutingTests.m; sourceTree = "<group>"; };
@@ -55,6 +82,35 @@
 		E736688D1ABB97DE0088DAB3 /* PlistViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistViewerViewController.m; sourceTree = "<group>"; };
 		E736688F1ABBA3650088DAB3 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		E73668931ABC83AD0088DAB3 /* Team Info.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Team Info.csv"; sourceTree = "<group>"; };
+		E73668951ABC9BBF0088DAB3 /* PlistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistTableViewController.h; sourceTree = "<group>"; };
+		E73668961ABC9BBF0088DAB3 /* PlistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistTableViewController.m; sourceTree = "<group>"; };
+		E73D13411ADC2DA5000D6104 /* PlistDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistDownloader.h; sourceTree = "<group>"; };
+		E73D13421ADC2DA5000D6104 /* PlistDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistDownloader.m; sourceTree = "<group>"; };
+		E772C40E1ABD87850093B8DF /* NSURL+Directory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+Directory.h"; sourceTree = "<group>"; };
+		E772C40F1ABD87850093B8DF /* NSURL+Directory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+Directory.m"; sourceTree = "<group>"; };
+		E772C4111ABD9C480093B8DF /* HexagonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexagonView.h; sourceTree = "<group>"; };
+		E772C4121ABD9C480093B8DF /* HexagonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexagonView.m; sourceTree = "<group>"; };
+		E772C4141ABDA5760093B8DF /* TeamDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamDetailViewController.h; sourceTree = "<group>"; };
+		E772C4151ABDA5760093B8DF /* TeamDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamDetailViewController.m; sourceTree = "<group>"; };
+		E772C4171ABDC04C0093B8DF /* Sample_Real.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sample_Real.plist; sourceTree = "<group>"; };
+		E772C4191ABDC7640093B8DF /* NSDictionary+Indexing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Indexing.h"; sourceTree = "<group>"; };
+		E772C41A1ABDC7640093B8DF /* NSDictionary+Indexing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Indexing.m"; sourceTree = "<group>"; };
+		E7C1B0491ADEBC950088B21C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E7C1B04B1ADEBC9C0088B21C /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		E7C1B04D1ADEBCDF0088B21C /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		E7C1B04E1ADEBCDF0088B21C /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		E7C1B0501ADEBD9C0088B21C /* HelpContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpContentViewController.h; sourceTree = "<group>"; };
+		E7C1B0511ADEBD9C0088B21C /* HelpContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpContentViewController.m; sourceTree = "<group>"; };
+		E7DE62701AD9A019009DCA25 /* PlistUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistUploader.h; sourceTree = "<group>"; };
+		E7DE62711AD9A019009DCA25 /* PlistUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistUploader.m; sourceTree = "<group>"; };
+		E7DE62731ADA9015009DCA25 /* NewTeamInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTeamInfoTableViewController.h; sourceTree = "<group>"; };
+		E7DE62741ADA9015009DCA25 /* NewTeamInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTeamInfoTableViewController.m; sourceTree = "<group>"; };
+		E7DE627A1ADA98E5009DCA25 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		E7DE627C1ADA9A8B009DCA25 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E7DE627E1ADAA9B3009DCA25 /* TeamInfoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamInfoTableViewController.h; sourceTree = "<group>"; };
+		E7DE627F1ADAA9B3009DCA25 /* TeamInfoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamInfoTableViewController.m; sourceTree = "<group>"; };
+		E7DE62811ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamInfoViewerTableViewController.h; sourceTree = "<group>"; };
+		E7DE62821ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamInfoViewerTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DE627D1ADA9A8B009DCA25 /* AVFoundation.framework in Frameworks */,
+				E7DE627B1ADA98E5009DCA25 /* AssetsLibrary.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +136,8 @@
 		E736681A1ABA21670088DAB3 = {
 			isa = PBXGroup;
 			children = (
+				E7DE627C1ADA9A8B009DCA25 /* AVFoundation.framework */,
+				E7DE627A1ADA98E5009DCA25 /* AssetsLibrary.framework */,
 				E73668251ABA21670088DAB3 /* FTC Scouting */,
 				E73668421ABA21670088DAB3 /* FTC ScoutingTests */,
 				E73668241ABA21670088DAB3 /* Products */,
@@ -96,20 +156,54 @@
 		E73668251ABA21670088DAB3 /* FTC Scouting */ = {
 			isa = PBXGroup;
 			children = (
+				E772C40E1ABD87850093B8DF /* NSURL+Directory.h */,
+				E772C40F1ABD87850093B8DF /* NSURL+Directory.m */,
+				E772C4191ABDC7640093B8DF /* NSDictionary+Indexing.h */,
+				E772C41A1ABDC7640093B8DF /* NSDictionary+Indexing.m */,
 				E736682A1ABA21670088DAB3 /* AppDelegate.h */,
 				E736682B1ABA21670088DAB3 /* AppDelegate.m */,
 				E73668301ABA21670088DAB3 /* ViewController.h */,
 				E73668311ABA21670088DAB3 /* ViewController.m */,
-				E73668331ABA21670088DAB3 /* Main.storyboard */,
+				E7C1B0491ADEBC950088B21C /* Main.storyboard */,
+				E7C1B0501ADEBD9C0088B21C /* HelpContentViewController.h */,
+				E7C1B0511ADEBD9C0088B21C /* HelpContentViewController.m */,
+				E7C1B04D1ADEBCDF0088B21C /* HelpViewController.h */,
+				E7C1B04E1ADEBCDF0088B21C /* HelpViewController.m */,
+				E728CAD91ADD4305008CF5FA /* MoreInfoTableViewController.h */,
+				E728CADA1ADD4305008CF5FA /* MoreInfoTableViewController.m */,
+				E728CAD31ADD3453008CF5FA /* RootViewController.h */,
+				E728CAD41ADD3453008CF5FA /* RootViewController.m */,
+				E7DE62811ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.h */,
+				E7DE62821ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.m */,
+				E7DE627E1ADAA9B3009DCA25 /* TeamInfoTableViewController.h */,
+				E7DE627F1ADAA9B3009DCA25 /* TeamInfoTableViewController.m */,
+				E7DE62731ADA9015009DCA25 /* NewTeamInfoTableViewController.h */,
+				E7DE62741ADA9015009DCA25 /* NewTeamInfoTableViewController.m */,
+				E728CAD61ADD3EFF008CF5FA /* LandscapePickerController.h */,
+				E728CAD71ADD3EFF008CF5FA /* LandscapePickerController.m */,
+				E772C4141ABDA5760093B8DF /* TeamDetailViewController.h */,
+				E772C4151ABDA5760093B8DF /* TeamDetailViewController.m */,
+				E772C4111ABD9C480093B8DF /* HexagonView.h */,
+				E772C4121ABD9C480093B8DF /* HexagonView.m */,
+				E7094B971ABD7EF8007E88D6 /* AnalyzeTableViewController.h */,
+				E7094B981ABD7EF8007E88D6 /* AnalyzeTableViewController.m */,
+				E7C1B04B1ADEBC9C0088B21C /* LaunchScreen.xib */,
+				E73668951ABC9BBF0088DAB3 /* PlistTableViewController.h */,
+				E73668961ABC9BBF0088DAB3 /* PlistTableViewController.m */,
+				E7DE62701AD9A019009DCA25 /* PlistUploader.h */,
+				E7DE62711AD9A019009DCA25 /* PlistUploader.m */,
+				E73D13411ADC2DA5000D6104 /* PlistDownloader.h */,
+				E73D13421ADC2DA5000D6104 /* PlistDownloader.m */,
 				E736688C1ABB97DE0088DAB3 /* PlistViewerViewController.h */,
 				E736688D1ABB97DE0088DAB3 /* PlistViewerViewController.m */,
 				E736684F1ABA2EE00088DAB3 /* ScoutingTableViewController.h */,
 				E73668501ABA2EE00088DAB3 /* ScoutingTableViewController.m */,
 				E73668891ABB910B0088DAB3 /* FilesTableViewController.h */,
 				E736688A1ABB910B0088DAB3 /* FilesTableViewController.m */,
+				E70E954A1ABCCA6B00FBA878 /* B matches.csv */,
 				E73668931ABC83AD0088DAB3 /* Team Info.csv */,
+				E772C4171ABDC04C0093B8DF /* Sample_Real.plist */,
 				E73668871ABB83950088DAB3 /* Sample.plist */,
-				E73668381ABA21670088DAB3 /* LaunchScreen.xib */,
 				E736682D1ABA21670088DAB3 /* FTC_Scouting.xcdatamodeld */,
 				E73668261ABA21670088DAB3 /* Supporting Files */,
 				E736688F1ABBA3650088DAB3 /* Image.xcassets */,
@@ -205,7 +299,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = E736681A1ABA21670088DAB3;
@@ -225,10 +318,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E73668941ABC83AD0088DAB3 /* Team Info.csv in Resources */,
+				E772C4181ABDC04C0093B8DF /* Sample_Real.plist in Resources */,
 				E73668881ABB83950088DAB3 /* Sample.plist in Resources */,
+				E7C1B04C1ADEBC9C0088B21C /* LaunchScreen.xib in Resources */,
+				E7C1B04A1ADEBC950088B21C /* Main.storyboard in Resources */,
+				E70E954B1ABCCA6B00FBA878 /* B matches.csv in Resources */,
 				E73668901ABBA3650088DAB3 /* Image.xcassets in Resources */,
-				E73668351ABA21670088DAB3 /* Main.storyboard in Resources */,
-				E736683A1ABA21670088DAB3 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,13 +341,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E728CADB1ADD4305008CF5FA /* MoreInfoTableViewController.m in Sources */,
+				E7C1B04F1ADEBCDF0088B21C /* HelpViewController.m in Sources */,
+				E7094B991ABD7EF8007E88D6 /* AnalyzeTableViewController.m in Sources */,
+				E728CAD51ADD3453008CF5FA /* RootViewController.m in Sources */,
+				E772C41B1ABDC7640093B8DF /* NSDictionary+Indexing.m in Sources */,
+				E7DE62801ADAA9B3009DCA25 /* TeamInfoTableViewController.m in Sources */,
+				E73668971ABC9BBF0088DAB3 /* PlistTableViewController.m in Sources */,
 				E736688E1ABB97DE0088DAB3 /* PlistViewerViewController.m in Sources */,
+				E7DE62751ADA9015009DCA25 /* NewTeamInfoTableViewController.m in Sources */,
+				E7C1B0521ADEBD9C0088B21C /* HelpContentViewController.m in Sources */,
 				E73668511ABA2EE00088DAB3 /* ScoutingTableViewController.m in Sources */,
+				E772C4131ABD9C480093B8DF /* HexagonView.m in Sources */,
+				E7DE62721AD9A019009DCA25 /* PlistUploader.m in Sources */,
+				E73D13431ADC2DA5000D6104 /* PlistDownloader.m in Sources */,
+				E772C4101ABD87850093B8DF /* NSURL+Directory.m in Sources */,
 				E736682F1ABA21670088DAB3 /* FTC_Scouting.xcdatamodeld in Sources */,
 				E736682C1ABA21670088DAB3 /* AppDelegate.m in Sources */,
+				E7DE62831ADAC9FC009DCA25 /* TeamInfoViewerTableViewController.m in Sources */,
 				E73668321ABA21670088DAB3 /* ViewController.m in Sources */,
 				E73668291ABA21670088DAB3 /* main.m in Sources */,
+				E772C4161ABDA5760093B8DF /* TeamDetailViewController.m in Sources */,
 				E736688B1ABB910B0088DAB3 /* FilesTableViewController.m in Sources */,
+				E728CAD81ADD3EFF008CF5FA /* LandscapePickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,25 +384,6 @@
 			targetProxy = E73668401ABA21670088DAB3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E73668331ABA21670088DAB3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E73668341ABA21670088DAB3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E73668381ABA21670088DAB3 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E73668391ABA21670088DAB3 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E73668471ABA21670088DAB3 /* Debug */ = {
@@ -455,6 +547,7 @@
 				E736684B1ABA21670088DAB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E736684C1ABA21670088DAB3 /* Build configuration list for PBXNativeTarget "FTC ScoutingTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +556,7 @@
 				E736684E1ABA21670088DAB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

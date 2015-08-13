@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>各项比分排名</key>
+	<string>
+得分：168；项目：120厘米中心球桶
+得分：84；项目：90厘米桶
+得分：30；项目：停在坡上
+得分：20；项目：下坡20分
+得分：10；项目：停在驻停区
+得分：0；项目：成功撞杆30分
+得分：0；项目：60厘米桶
+得分：0；项目：向滚动球桶拖入驻停区20分
+得分：0；项目：向中心球桶投球60分
+得分：0；项目：30厘米桶
+得分：0；项目：向滚动球桶投球30分
+</string>
+	<key>备注</key>
+	<string></string>
+	<key>总分</key>
+	<string>312</string>
+	<key>手动阶段未动</key>
+	<false/>
+	<key>比赛对阵</key>
+	<string>1155 &amp; 1152 v.s. 1091 &amp; 1113</string>
+	<key>自动阶段未动</key>
+	<false/>
+	<key>详细分数</key>
+	<dict>
+		<key>120厘米中心球桶</key>
+		<integer>168</integer>
+		<key>30厘米桶</key>
+		<integer>0</integer>
+		<key>60厘米桶</key>
+		<integer>0</integer>
+		<key>90厘米桶</key>
+		<integer>84</integer>
+		<key>下坡20分</key>
+		<integer>20</integer>
+		<key>停在坡上</key>
+		<integer>30</integer>
+		<key>停在驻停区</key>
+		<integer>10</integer>
+		<key>向中心球桶投球60分</key>
+		<integer>0</integer>
+		<key>向滚动球桶投球30分</key>
+		<integer>0</integer>
+		<key>向滚动球桶拖入驻停区20分</key>
+		<integer>0</integer>
+		<key>成功撞杆30分</key>
+		<integer>0</integer>
+	</dict>
+	<key>队伍名称</key>
+	<string>北京五十七中</string>
+	<key>队伍编号</key>
+	<string>1155</string>
+</dict>
+</plist>

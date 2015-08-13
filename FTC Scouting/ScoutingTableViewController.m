@@ -7,8 +7,9 @@
 //
 
 #import "ScoutingTableViewController.h"
+#import "NSURL+Directory.h"
 
-@interface ScoutingTableViewController ()
+@interface ScoutingTableViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *teamNumber;
 
@@ -36,9 +37,9 @@
 
 @property (strong, nonatomic) NSArray *rank;
 @property (strong, nonatomic) IBOutletCollection(UITextView) NSArray *rankTextField;
-@property (strong, nonatomic) NSURL *documentURL;
+//@property (strong, nonatomic) NSURL *documentURL;
 
-@property (strong, nonatomic) NSDictionary *teamInfo;
+@property (strong, nonatomic) NSDictionary *teamInfo, *matchInfo;
 
 @end
 
@@ -61,17 +62,26 @@
 
 - (NSArray *)autonomousTitle
 {
-    return @[@"下坡20分", @"向滚动球桶投球30分", @"向滚动球桶拖入驻停区20分", @"成功撞杆30分", @"向中心球桶投球60分", @"未动0分", @"手动未动0分"];
+    return @[@"Descend Ramp (20 points)",
+             @"Score Rolling Goal (30 points)",
+             @"Drag Rolling Goal into Parking Area (20 points)",
+             @"Hit Kick Stand (30 points)",
+             @"Score Center Goal (60 points)",
+             @"Auto Didn't Move", @"Driver Controlled Didn't Move"];
 }
 
 - (NSArray *)heightTitle
 {
-    return @[@"90厘米桶", @"60厘米桶", @"30厘米桶", @"120厘米中心球桶"];
+    return @[@"90cm Score (3 points per cm)",
+             @"60cm Score (2 points per cm)",
+             @"30cm Score (1 points per cm)",
+             @"120cm Score (6 points per cm)"];
 }
 
 - (NSArray *)stopTitle
 {
-    return @[@"停在坡上", @"停在驻停区"];
+    return @[@"Number on Ramp (30 points per item)",
+             @"Number in Parking Area (10 points per item)"];
 }
 
 - (NSArray *)rank
@@ -86,22 +96,69 @@
 - (NSDictionary *)teamInfo
 {
     if (!_teamInfo) {
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"Team Info" withExtension:@".csv"];
+        NSMutableArray *data = [NSMutableArray array];
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        NSURL *directory = [[[manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject] URLByAppendingPathComponent:@"teams/"];
+        
+        if ([manager fileExistsAtPath:directory.path]) {
+            NSError *dirErr;
+            //self.rootURL = directory;
+            NSArray *urls = [manager contentsOfDirectoryAtURL:directory includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsHiddenFiles error:&dirErr];
+            if (dirErr) {
+//                self.title = @"Directory Read Error";
+                [[[UIAlertView alloc] initWithTitle:@"Directory Read Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                return nil;
+            }
+            [urls enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                NSURL *fileURL = obj;
+                if ([fileURL isDirectory]) {
+                    return ;
+                }
+                if (![fileURL.pathExtension isEqualToString:@"plist"]){
+                    return;
+                }
+                NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfURL:fileURL];
+                if (dictionary) {
+                    [data addObject:dictionary];
+                    if (dictionary[@"Team Name"]&&dictionary[@"Team Number"]) {
+                        [dic setObject:dictionary[@"Team Name"] forKeyedSubscript:dictionary[@"Team Number"]];
+                    }
+                    
+                }
+            }];
+        }
+        _teamInfo = dic;
+        
+    }
+    return _teamInfo;
+}
+
+- (NSDictionary *)matchInfo
+{
+    if (!_matchInfo) {
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"B matches" withExtension:@".csv"];
         NSError *error;
         NSString *str = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
         if (error) {
-            self.title = @"Team Infomation Read Error";
+//            self.title = @"Match Infomation Read Error";
+            [[[UIAlertView alloc] initWithTitle:@"Match Infomation Read Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+            return nil;
         }
-        NSMutableDictionary *teamInfo = [NSMutableDictionary dictionary];
+        NSMutableDictionary *matchInfo = [NSMutableDictionary dictionary];
         NSArray *rows = [str componentsSeparatedByString:@"\r\n"];
         [rows enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSString *row = obj;
-            NSArray *keyAndValue = [row componentsSeparatedByString:@","];
-            [teamInfo setObject:[keyAndValue lastObject] forKey:[keyAndValue firstObject]];
+            NSArray *values = [row componentsSeparatedByString:@","];
+            NSString *key = [values firstObject];
+            NSRange range;
+            range.location = 1;
+            range.length = 4;
+            [matchInfo setObject:[values subarrayWithRange:range] forKey:key];
         }];
-        _teamInfo = teamInfo;
+        _matchInfo = matchInfo;
     }
-    return _teamInfo;
+    return _matchInfo;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,7 +170,10 @@
     
     [ac addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.keyboardType = UIKeyboardTypeNumberPad;
-        textField.text = sender.titleLabel.text;
+        if (![self.teamNumber containsObject:sender]) {
+            textField.text = sender.titleLabel.text;
+        }
+        
     }];
     [ac addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         if ([((UITextField *)([ac.textFields firstObject])).text isEqualToString:@""] ) {
@@ -124,7 +184,12 @@
         if ([self.teamNumber containsObject:sender]) {
             NSUInteger idx = [self.teamNumber indexOfObject:sender];
             UIButton *nameButton = [self.teamName objectAtIndex:idx];
-            [nameButton setTitle:[self.teamInfo objectForKey:[NSString stringWithFormat:@"%d", [name intValue]]] forState:UIControlStateNormal];
+            NSString *title = [self.teamInfo objectForKey:[NSString stringWithFormat:@"%d", [name intValue]]];
+            if (title) {
+                [nameButton setTitle:title forState:UIControlStateNormal];
+            }
+            
+            [self updateTitle];
         }
     }]];
     [self presentViewController:ac animated:YES completion:nil];
@@ -312,7 +377,7 @@
            // NSArray *keys = [dic allKeys];
             [keys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 NSString *text = obj;
-                textField.text = [textField.text stringByAppendingString:[NSString stringWithFormat:@"得分：%@；项目：%@\r\n",[dic objectForKey:text], text]];
+                textField.text = [textField.text stringByAppendingString:[NSString stringWithFormat:@"Score：%@；Item：%@\r\n",[dic objectForKey:text], text]];
             }];
         }];
     }
@@ -325,35 +390,46 @@
     
 }
 
-- (NSURL *)documentURL
+//- (NSURL *)documentURL
+//{
+//    if (!_documentURL) {
+//        NSFileManager *manager = [NSFileManager defaultManager];
+//        NSURL *documentsDirectory = [[manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+//        NSString *documentName = @"Database";
+//        NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentName];
+//        UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
+//        
+//        BOOL fileExists = [manager fileExistsAtPath:[url path]];
+//        if (fileExists) {
+//            [document openWithCompletionHandler:^(BOOL success) {
+//                if (success) {
+//                    
+//                } else {
+//                    NSLog(@"Couldn't open document at %@", url);
+//                }
+//            }];
+//        } else {
+//            [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
+//                if (success) {
+//                    
+//                } else {
+//                    NSLog(@"Couldn't create document at %@", url);
+//                }
+//            }];
+//        }
+//    }
+//    return _documentURL;
+//}
+
+- (NSString *)matchUniqueID
 {
-    if (!_documentURL) {
-        NSFileManager *manager = [NSFileManager defaultManager];
-        NSURL *documentsDirectory = [[manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
-        NSString *documentName = @"Database";
-        NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentName];
-        UIManagedDocument *document = [[UIManagedDocument alloc] initWithFileURL:url];
-        
-        BOOL fileExists = [manager fileExistsAtPath:[url path]];
-        if (fileExists) {
-            [document openWithCompletionHandler:^(BOOL success) {
-                if (success) {
-                    
-                } else {
-                    NSLog(@"Couldn't open document at %@", url);
-                }
-            }];
-        } else {
-            [document saveToURL:url forSaveOperation:UIDocumentSaveForCreating completionHandler:^(BOOL success) {
-                if (success) {
-                    
-                } else {
-                    NSLog(@"Couldn't create document at %@", url);
-                }
-            }];
-        }
-    }
-    return _documentURL;
+    return [NSString stringWithFormat:@"%@ & %@ v.s. %@ & %@", [self getTeamNumberAtIndex:0], [self getTeamNumberAtIndex:1], [self getTeamNumberAtIndex:2], [self getTeamNumberAtIndex:3]];
+}
+
+- (NSString *)getTeamNumberAtIndex:(int)idx
+{
+    UIButton *button = [self.teamNumber objectAtIndex:idx];
+    return button.titleLabel.text;
 }
 
 - (IBAction)save:(id)sender
@@ -370,21 +446,34 @@
             UISwitch *manualNeverMoves = [self.manualNotMovingSwitch objectAtIndex:idx];
             
             NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            [dic setObject:teamNumber.titleLabel.text forKey:@"队伍编号"];
-            [dic setObject:teamName.titleLabel.text forKey:@"队伍名称"];
-            [dic setObject:score.titleLabel.text forKey:@"总分"];
-            [dic setObject:comment.text forKey:@"备注"];
-            [dic setObject:rank.text forKey:@"各项比分排名"];
-            [dic setObject:detailedScore forKey:@"详细分数"];
-            [dic setObject:[NSNumber numberWithBool:autoNeverMoves.on] forKey:@"自动阶段未动"];
-            [dic setObject:[NSNumber numberWithBool:manualNeverMoves.on] forKey:@"手动阶段未动"];
-            
-            
-            NSFileManager *manager = [NSFileManager defaultManager];
-            NSURL *documentsDirectory = [[manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+            [dic setObject:teamNumber.titleLabel.text forKey:@"Team Number"];
+            [dic setObject:teamName.titleLabel.text forKey:@"Team Name"];
+            [dic setObject:score.titleLabel.text forKey:@"Total Score"];
+            [dic setObject:comment.text forKey:@"Notes"];
+            [dic setObject:rank.text forKey:@"Ranks"];
+            [dic setObject:detailedScore forKey:@"Detailed Score"];
+            [dic setObject:[NSNumber numberWithBool:autoNeverMoves.on] forKey:@"Auto Didn't Move"];
+            [dic setObject:[NSNumber numberWithBool:manualNeverMoves.on] forKey:@"Driver Controlled Didn't Move"];
+            [dic setObject:[self matchUniqueID] forKeyedSubscript:@"Match Info"];
+           
             NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
             formatter.dateStyle = NSDateFormatterMediumStyle;
             formatter.timeStyle = NSDateFormatterMediumStyle;
+            
+            [dic setObject:[formatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:0]] forKey:@"Date"];
+            
+            NSFileManager *manager = [NSFileManager defaultManager];
+            NSURL *documentsDirectory = [[manager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
+            documentsDirectory = [documentsDirectory URLByAppendingPathComponent:@"matches/"];
+            if (![manager fileExistsAtPath:[documentsDirectory path] isDirectory:NULL]) {
+                NSError *mkdirErr;
+                [manager createDirectoryAtPath:[documentsDirectory path] withIntermediateDirectories:YES attributes:nil error:&mkdirErr];
+                if (mkdirErr) {
+//                    self.title = @"Directory creation error";
+                    [[[UIAlertView alloc] initWithTitle:@"Directory creation error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                    return;
+                }
+            }
             NSString *documentDir = [NSString stringWithFormat:@"%@", teamNumber.titleLabel.text];
             NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentDir];
             
@@ -393,14 +482,17 @@
             NSError *error;
             [manager createDirectoryAtURL:url withIntermediateDirectories:YES attributes:nil error:&error];
             if (error) {
-                self.title = @"Directory creation error";
+//                self.title = @"Directory creation error";
+                [[[UIAlertView alloc] initWithTitle:@"Directory creation error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
                 return;
             }
             url = [url URLByAppendingPathComponent:[NSString stringWithFormat:@"/%@.plist", [formatter stringFromDate:[NSDate dateWithTimeIntervalSinceNow:0]]]];
             
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dic];
             if (![manager createFileAtPath:[url path] contents:data attributes:nil]) {
-                self.title = @"File Creation ERROR";
+//                self.title = @"File Creation Error";
+                [[[UIAlertView alloc] initWithTitle:@"File Creation Error" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                return;
             }
             
             [dic writeToURL:url atomically:YES];
@@ -411,8 +503,9 @@
     }
     @catch (NSException *exception) {
         NSLog(@"%@", exception);
-        self.title = @"An error has occurred during saving.";
-        
+//        self.title = @"Please first complete \'operations\'.";
+        [[[UIAlertView alloc] initWithTitle:@"Please first complete \'operations\'." message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        return;
     }
     @finally {
         
@@ -420,10 +513,73 @@
     
 }
 
+- (IBAction)enterMatchNumber:(id)sender {
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Enter Match Number" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [ac addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        
+    }];
+    UIAlertAction *actionOK = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSArray *array = [self.matchInfo objectForKey:((UITextField *)[[ac textFields] firstObject]).text];
+        if (array) {
+            [self.teamNumber enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                UIButton *button = obj;
+                [button setTitle:[array objectAtIndex:idx] forState:UIControlStateNormal];
+                [self updateTitle];
+            }];
+            [self.teamName enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                UIButton *name = obj;
+                //UIButton *number = [self.teamNumber objectAtIndex:idx];
+                
+                [name setTitle:[self.teamInfo objectForKey:[array objectAtIndex:idx]] forState:UIControlStateNormal];
+            }];
+        }
+        
+    }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }];
+    [ac addAction:actionOK];
+    [ac addAction:cancel];
+    
+    [self presentViewController:ac animated:YES completion:nil];
+    
+}
+
 - (NSUInteger)supportedInterfaceOrientations
 {
     return [super supportedInterfaceOrientations];
 }
+
+- (void)updateTitle
+{
+    NSTimer *timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:.2] interval:0 target:self selector:@selector(updateTitleTimer:) userInfo:nil repeats:NO];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    
+}
+- (void)updateTitleTimer:(NSTimer *)timer
+{
+    self.navigationItem.prompt = @"";
+    [self.teamNumber enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        UIButton *button = obj;
+        self.navigationItem.prompt = [NSString stringWithFormat:@"%@   ||   %@", self.navigationItem.prompt, button.titleLabel.text];
+    }];
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.commentTextField.delegate = self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
 
 
 @end
